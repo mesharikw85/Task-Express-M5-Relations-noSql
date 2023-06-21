@@ -4,6 +4,7 @@ const Post = require("../../models/Post");
 exports.postsCreate = async (req, res, next) => {
   try {
     const { authorId } = req.params;
+
     const newPost = await Post.create({ ...req.body, author: authorId });
 
     await Author.findByIdAndUpdate(authorId, { $push: { posts: newPost._id } });

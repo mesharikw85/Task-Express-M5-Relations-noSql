@@ -1,9 +1,10 @@
 const express = require("express");
+const dotEnv = require("dotenv");
+dotEnv.config();
 const app = express();
 const postsRoutes = require("./api/posts/posts.routes");
 const connectDb = require("./database");
 const authorsRoutes = require("./api/author/author.routes");
-c;
 
 connectDb();
 app.use(express.json());
